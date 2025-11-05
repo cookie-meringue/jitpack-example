@@ -8,7 +8,7 @@ plugins {
 }
 
 allprojects {
-    group = 'com.github.moko-meringue'  // GitHub 유저명으로 변경
+    group = 'com.github.cookie-meringue'  // GitHub 유저명으로 변경
     version = '1.0.0'
 
     repositories {
