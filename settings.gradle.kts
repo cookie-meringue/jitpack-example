@@ -1,0 +1,5 @@
+rootProject.name = "mmmq"
+
+include("mmmq-core")
+include("mmmq-server")
+include("mmmq-client")

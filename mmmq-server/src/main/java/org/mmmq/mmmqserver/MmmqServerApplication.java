@@ -1,13 +1,13 @@
-package com.jitpackexample;
+package org.mmmq.mmmqserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JitpackExampleApplication {
+public class MmmqServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(JitpackExampleApplication.class, args);
+        SpringApplication.run(MmmqServerApplication.class, args);
     }
 
 }

@@ -1,10 +1,10 @@
-package com.jitpackexample;
+package org.mmmq.mmmqserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JitpackExampleApplicationTests {
+class MmmqServerApplicationTests {
 
     @Test
     void contextLoads() {
