@@ -1,4 +1,4 @@
-package com.mmmq;
+package com.jitpackexample;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

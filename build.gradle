@@ -1,12 +1,14 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.7'
+    id 'org.springframework.boot' version '3.5.7' apply false
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'maven-publish'
 }
 
-group = 'com'
-version = '0.0.1-SNAPSHOT'
-description = 'jitpack-example'
+group = 'cookie-meringue.jitpack-example'
+version = '1.0.0'
 
 java {
     toolchain {
@@ -22,6 +24,13 @@ configurations {
 
 repositories {
     mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom SpringBootPlugin.BOM_COORDINATES
+    }
 }
 
 dependencies {
@@ -30,6 +39,18 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'cookie-meringue.jitpack-example'
+            artifactId = 'jitpack-example'
+            version = '1.0.0'
+
+            from components.java
+        }
+    }
 }
 
 tasks.named('test') {

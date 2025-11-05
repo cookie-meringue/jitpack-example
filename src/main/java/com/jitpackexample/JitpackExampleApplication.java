@@ -1,4 +1,4 @@
-package com.mmmq;
+package com.jitpackexample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
