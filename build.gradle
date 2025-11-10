@@ -27,8 +27,8 @@ subprojects {
     }
 
     dependencies {
-        // Spring Boot Platform for version management
-        api platform('org.springframework.boot:spring-boot-dependencies:3.2.0')
+        // Spring Boot Platform for centralized version management
+        implementation platform('org.springframework.boot:spring-boot-dependencies:3.2.0')
         
         testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
