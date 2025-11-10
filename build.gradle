@@ -1,14 +1,12 @@
-import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.0' apply false
-    id 'io.spring.dependency-management' version '1.1.4' apply false
     id 'maven-publish'
 }
 
 allprojects {
-    group = 'com.github.cookie-meringue'  // GitHub 유저명으로 변경
+    group = 'com.github.cookie-meringue'  // JitPack 그룹명
     version = '1.0.0'
 
     repositories {
@@ -18,7 +16,6 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
-    apply plugin: 'io.spring.dependency-management'
     apply plugin: 'maven-publish'
 
     java {
@@ -29,13 +26,10 @@ subprojects {
         withJavadocJar()
     }
 
-    dependencyManagement {
-        imports {
-            mavenBom SpringBootPlugin.BOM_COORDINATES
-        }
-    }
-
     dependencies {
+        // Spring Boot Platform for version management
+        api platform('org.springframework.boot:spring-boot-dependencies:3.2.0')
+        
         testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
