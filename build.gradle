@@ -15,6 +15,7 @@ allprojects {
 }
 
 subprojects {
+    // 이 build.gradle 에서 추가한 플러그인을 subproject 에도 적용
     apply plugin: 'java'
     apply plugin: 'maven-publish'
 
@@ -22,13 +23,14 @@ subprojects {
         toolchain {
             languageVersion = JavaLanguageVersion.of(17)
         }
-        withSourcesJar()
-        withJavadocJar()
+        withSourcesJar() // 소스 JAR 생성(Plain Jar)
     }
 
     dependencies {
-        // Spring Boot Platform for centralized version management
-        implementation platform('org.springframework.boot:spring-boot-dependencies:3.2.0')
+        // 스프링 부트의 의존성 관리자 버전 명시
+        // 우리 라이브러리를 사용하는 프로젝트의 스프링 부트 버전이 3.2.0 이상이어야 함
+        // (Spring Boot 3.2.0 에서 Java 17 이상 지원)
+        implementation platform('org.springframework.boot:spring-boot-dependencies:3.0.0')
         
         testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
